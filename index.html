@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Görkem, Aşk Mektubun Var ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+<style>
+/* GENEL VE EROTİK ORTAM AYARLARI */
+body {
+    margin: 0;
+    /* Derin Kırmızıdan Bordo Siyaha Geçişli Arkaplan */
+    background: radial-gradient(circle at center, #AA0000 0%, #440000 100%);
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    color: #FFD700; /* Başlık rengi için altın tonu */
+}
+
+h1 {
+    text-align: center;
+    color: #FFFAFA; 
+    font-size: 3.5em; /* Daha büyük başlık */
+    margin-top: 60px;
+    /* DÜZ YAZI FONTU (Roboto) */
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 700; /* Kalın ve düz */
+    letter-spacing: 3px;
+    /* PARLAMA ANİMASYONU */
+    animation: neon-pulse 1.5s infinite alternate;
+}
+
+@keyframes neon-pulse {
+    0% { 
+        text-shadow: 0 0 5px #FF0000, 0 0 10px #FFD700; 
+        color: #FFFAFA; 
+    }
+    100% { 
+        text-shadow: 0 0 15px #FF0000, 0 0 30px #FF6666, 0 0 40px #FF0000; 
+        color: #FFD700; 
+    }
+}
+
+/* ZARF KISMI - Tüm ekranı kaplayan zarif stil */
+.envelope {
+    position: relative;
+    width: 600px; /* Daha büyük zarf */
+    height: 400px;
+    margin: 80px auto;
+    background: #A00000; /* Derin Kırmızı Zarf Rengi */
+    border-radius: 20px;
+    /* ZARF İÇİN BUĞULU, ŞEHVETLİ GÖLGE EFEKTİ */
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.9), 0 0 100px rgba(100, 0, 0, 0.7);
+    overflow: hidden; 
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+    z-index: 5; 
+}
+
+/* ZARF KAPAK DEKORASYONU (Kırmızı Kalp Mühür) */
+.envelope-seal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #FF0000, #800000);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+    z-index: 7;
+    pointer-events: none;
+    transition: opacity 0.5s;
+    /* Kalp şekli */
+    transform-origin: center;
+    clip-path: polygon(50% 100%, 0% 40%, 0% 0%, 50% 20%, 100% 0%, 100% 40%);
+}
+
+/* Zarfın BEYAZ İÇ KISMI (MEKTUP, üstte) */
+.envelope::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 300px solid transparent; 
+    border-right: 300px solid transparent;
+    border-top: 200px solid #F5F5DC; /* Krem Beyaz Kağıt Rengi */
+    z-index: 2;
+}
+
+/* Zarfın KIRMIZI KAPAK KISMI (altta, açılacak) */
+.envelope::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 300px solid transparent;
+    border-right: 300px solid transparent;
+    border-bottom: 200px solid #700000; /* Koyu Kapak Rengi */
+    z-index: 1;
+    transform-origin: bottom;
+    transition: transform 1s ease-in-out;
+}
+
+/* MEKTUP KAĞIDI İÇERİĞİ */
+.letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    height: 80%;
+    background: white; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    opacity: 0; 
+    transition: all 0.8s ease-in-out 0.3s;
+    z-index: 3; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.letter-content {
+    color: #800000; /* Derin Bordo Yazı */
+    font-size: 2.5em;
+    line-height: 1.6;
+    font-family: 'Dancing Script', cursive; /* El yazısı fontu korundu */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* ZARF AÇILINCA */
+.envelope.open::after {
+    transform: rotateX(180deg) translateY(200px); 
+}
+
+.envelope.open .envelope-seal {
+    opacity: 0; 
+}
+
+.envelope.open .letter {
+    opacity: 1; 
+    transform: translate(-50%, -50%) translateY(-20px); 
+}
+
+/* KALPLER İÇİN STİL */
+.heart {
+    position: fixed;
+    font-size: 0px; 
+    pointer-events: none;
+    animation: float 5s linear forwards;
+    z-index: 10; 
+}
+
+/* KALPLERİN HAREKETİ */
+@keyframes float {
+    0% { transform: translate(0, 0) scale(var(--s)); opacity: 1; }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0.1);
+        opacity: 0;
+    }
+}
+
+audio { display: none; }
+</style>
+</head>
+<body>
+
+<h1>Görkem Bey, bir zarfınız var...💓</h1>
+
+<div class="envelope" id="envelope">
+    <div class="envelope-seal"></div> <div class="letter">
+        <div class="letter-content">
+            ❤️‍🔥Nazlı seni çok seviyor.❤️‍🔥<br>
+                       Nazlı❤Görkem
+        </div>
+    </div>
+</div>
+
+<audio id="music" autoplay loop>
+  <source src="gelbirgece.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const envelope = document.getElementById('envelope');
+const music = document.getElementById('music');
+let heartInterval; 
+
+envelope.addEventListener('click', () => {
+    if (!envelope.classList.contains('open')) {
+        envelope.classList.add('open');
+        
+        // İlk açılışta fışkıran kalpler
+        const initialHeartCount = 1200; 
+
+        for (let i = 0; i < initialHeartCount; i++) { 
+            createHeart(); 
+        }
+        
+         // Zarf açıldıktan sonra sürekli rastgele kırmızı kalpler fışkırması
+        heartInterval = setInterval(() => {
+            const numHeartsToSpawn = Math.floor(Math.random() * 4) + 1; // 1 ile 4 arası
+            for (let i = 0; i < numHeartsToSpawn; i++) {
+                createHeart(); // Sürekli fışkıran kalpler
+            }
+        }, 80); // Her 80ms'de bir yeni kalpler (Yoğun Akış)
+
+        if (music.paused) {
+            music.play().catch(error => {
+                console.log("Müzik otomatik başlamadı.");
+            });
+        }
+    }
+});
+
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    
+    // Sadece KIRMIZI ve AŞK temalı emojiler
+    const chars = ['❤️', '💖', '❤️‍🔥', '❤', '💓'];
+    heart.textContent = chars[Math.floor(Math.random() * chars.length)]; 
+    heart.style.color = 'red'; 
+    document.body.appendChild(heart);
+
+    // Başlangıç pozisyonu (Ekranın rastgele bir yeri)
+    const startX = Math.random() * window.innerWidth;
+    const startY = Math.random() * window.innerHeight;
+
+    // Hedef pozisyonu (Ekranın dışına doğru)
+    const targetRangeX = window.innerWidth * 2; 
+    const targetRangeY = window.innerHeight * 2;
+    const x = (Math.random() - 0.5) * targetRangeX;
+    const y = (Math.random() - 0.5) * targetRangeY;
+    
+    // Rastgele boyut ve hız
+    const size = Math.random() * 30 + 10; 
+    const duration = Math.random() * 4 + 5; 
+    
+    heart.style.left = `${startX}px`;
+    heart.style.top = `${startY}px`;
+    heart.style.fontSize = `${size}px`;
+    heart.style.animationDuration = `${duration}s`;
+    heart.style.setProperty('--x', `${x}px`);
+    heart.style.setProperty('--y', `${y}px`);
+    heart.style.setProperty('--s', `${Math.random() * 0.8 + 0.5}`); 
+
+    setTimeout(() => heart.remove(), duration * 1000);
+}
+</script>
+
+</body>
+</html>
